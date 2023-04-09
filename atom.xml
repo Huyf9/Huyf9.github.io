@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>我的学习笔记</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2023-04-09T14:51:36.808Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>hyf</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>1 异构计算</title>
+    <link href="http://example.com/2023/04/09/1-yi-gou-ji-suan/"/>
+    <id>http://example.com/2023/04/09/1-yi-gou-ji-suan/</id>
+    <published>2023-04-09T14:08:23.000Z</published>
+    <updated>2023-04-09T14:51:36.808Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="异构计算"><a href="#异构计算" class="headerlink" title="异构计算"></a>异构计算</h1><p>异构计算即在两个及以上不同设备端进行并行计算的操作。随着计算设备多元化的发展，越来越多的场景引入CPU、GPU、DSP、FPGA等多种计算单元来加速计算。最常见的异构计算组合就是CPU+GPU的方式，因为其在几乎每一台计算机中都能找到。深度学习运用cuda加速训练就是一种典型的异构计算场景。</p><h1 id="CPU与GPU"><a href="#CPU与GPU" class="headerlink" title="CPU与GPU"></a>CPU与GPU</h1><p><img src="/2023/04/09/1-yi-gou-ji-suan/cpu_gpu.jpg" alt="cpu_and_gpu"><br><front size="4"><center> 图1  CPU结构与GPU结构 </center></front></p><p>上图展示了CPU与GPU的结构区别。CPU含有的核远远少于GPU，核是指核心芯片，一般用以进行计算、完成指令，所以核的数量越多，其在同一时间内能够处理的计算越多。但人们并不会因为GPU的计算单元数量多，而将所有的计算任务都放在GPU上，因为GPU的指令集比较简单，因此其适合处理并行简单任务；而CPU的指令集复杂，适合处理串行复杂任务。在复杂场景下，CPU与GPU协同工作，相互配合，才能够最大程度的加速我们的计算任务。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;异构计算&quot;&gt;&lt;a href=&quot;#异构计算&quot; class=&quot;headerlink&quot; title=&quot;异构计算&quot;&gt;&lt;/a&gt;异构计算&lt;/h1&gt;&lt;p&gt;异构计算即在两个及以上不同设备端进行并行计算的操作。随着计算设备多元化的发展，越来越多的场景引入CPU、GPU、DSP、FP</summary>
+      
+    
+    
+    
+    <category term="从零开始学CUDA" scheme="http://example.com/categories/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6CUDA/"/>
+    
+    
+    <category term="cuda" scheme="http://example.com/tags/cuda/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://example.com/2023/04/09/test/"/>
+    <id>http://example.com/2023/04/09/test/</id>
+    <published>2023-04-09T13:12:40.000Z</published>
+    <updated>2023-04-09T13:13:21.846Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="this-is-a-test-blog"><a href="#this-is-a-test-blog" class="headerlink" title="this is a test blog"></a>this is a test blog</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;this-is-a-test-blog&quot;&gt;&lt;a href=&quot;#this-is-a-test-blog&quot; class=&quot;headerlink&quot; title=&quot;this is a test blog&quot;&gt;&lt;/a&gt;this is a test blog&lt;/h1&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
