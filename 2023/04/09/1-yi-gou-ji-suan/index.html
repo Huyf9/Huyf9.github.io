@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>1 异构计算 | 我的学习笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="异构计算异构计算即在两个及以上不同设备端进行并行计算的操作。随着计算设备多元化的发展，越来越多的场景引入CPU、GPU、DSP、FPGA等多种计算单元来加速计算。最常见的异构计算组合就是CPU+GPU的方式，因为其在几乎每一台计算机中都能找到。深度学习运用cuda加速训练就是一种典型的异构计算场景。 CPU与GPU 图1  CPU结构与GPU结构  上图展示了CPU与GPU的结构区别。CPU含有的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1 异构计算">
+<meta property="og:url" content="http://example.com/2023/04/09/1-yi-gou-ji-suan/index.html">
+<meta property="og:site_name" content="我的学习笔记">
+<meta property="og:description" content="异构计算异构计算即在两个及以上不同设备端进行并行计算的操作。随着计算设备多元化的发展，越来越多的场景引入CPU、GPU、DSP、FPGA等多种计算单元来加速计算。最常见的异构计算组合就是CPU+GPU的方式，因为其在几乎每一台计算机中都能找到。深度学习运用cuda加速训练就是一种典型的异构计算场景。 CPU与GPU 图1  CPU结构与GPU结构  上图展示了CPU与GPU的结构区别。CPU含有的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/04/09/1-yi-gou-ji-suan/cpu_gpu.jpg">
+<meta property="article:published_time" content="2023-04-09T14:08:23.000Z">
+<meta property="article:modified_time" content="2023-04-09T14:51:36.808Z">
+<meta property="article:author" content="hyf">
+<meta property="article:tag" content="cuda">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/04/09/1-yi-gou-ji-suan/cpu_gpu.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="我的学习笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">我的学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-1-异构计算" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/04/09/1-yi-gou-ji-suan/" class="article-date">
+  <time datetime="2023-04-09T14:08:23.000Z" itemprop="datePublished">2023-04-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6CUDA/">从零开始学CUDA</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      1 异构计算
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="异构计算"><a href="#异构计算" class="headerlink" title="异构计算"></a>异构计算</h1><p>异构计算即在两个及以上不同设备端进行并行计算的操作。随着计算设备多元化的发展，越来越多的场景引入CPU、GPU、DSP、FPGA等多种计算单元来加速计算。最常见的异构计算组合就是CPU+GPU的方式，因为其在几乎每一台计算机中都能找到。深度学习运用cuda加速训练就是一种典型的异构计算场景。</p>
+<h1 id="CPU与GPU"><a href="#CPU与GPU" class="headerlink" title="CPU与GPU"></a>CPU与GPU</h1><p><img src="/2023/04/09/1-yi-gou-ji-suan/cpu_gpu.jpg" alt="cpu_and_gpu"><br><front size="4"><center> 图1  CPU结构与GPU结构 </center></front></p>
+<p>上图展示了CPU与GPU的结构区别。CPU含有的核远远少于GPU，核是指核心芯片，一般用以进行计算、完成指令，所以核的数量越多，其在同一时间内能够处理的计算越多。但人们并不会因为GPU的计算单元数量多，而将所有的计算任务都放在GPU上，因为GPU的指令集比较简单，因此其适合处理并行简单任务；而CPU的指令集复杂，适合处理串行复杂任务。在复杂场景下，CPU与GPU协同工作，相互配合，才能够最大程度的加速我们的计算任务。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/04/09/1-yi-gou-ji-suan/" data-id="clga7tn8u0001puudc0tffds7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cuda/" rel="tag">cuda</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/04/09/test/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">test</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6CUDA/">从零开始学CUDA</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/cuda/" rel="tag">cuda</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/cuda/" style="font-size: 10px;">cuda</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/09/1-yi-gou-ji-suan/">1 异构计算</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/09/test/">test</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 hyf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
